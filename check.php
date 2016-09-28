@@ -32,18 +32,18 @@
   }
 
   if($item == "" || $num == "" || $price == "") {
-  echo "<form>";
-  echo "<input type='button' onclick='history.back()' value='戻る'>";
-  echo "</form>";
+    echo "<form>";
+    echo "<input type='button' onclick='history.back()' value='戻る'>";
+    echo "</form>";
   } else {
-  echo "<form method='post' action='sheet.php'>";
+    echo "<form method='post' action='sheet.php'>";
 
-  echo "<input name='item' type='hidden' value='$item'>";
-  echo "<input name='num' type='hidden' value='$num'>";
-  echo "<input name='price' type='hidden' value='$price'>";
+    echo "<input name='item' type='hidden' value='$item'>";
+    echo "<input name='num' type='hidden' value='$num'>";
+    echo "<input name='price' type='hidden' value='$price'>";
 
-  echo "<input type='button' onclick='history.back()' value='戻る'>";
-  echo "<input type='submit' value='OK'>";
-  echo "</form>";
-}
+    echo "<input type='button' onclick='history.back()' value='戻る'>";
+    echo "<input type='submit' value='OK'>";
+    echo "</form>";
+  }
 ?>

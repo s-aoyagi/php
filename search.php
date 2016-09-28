@@ -16,10 +16,10 @@ if (!isset($_SESSION["USERID"])) {
   <link rel="stylesheet" href="">
 </head>
 <body>
-<form method="post" action="result.php">
-  請求コードを入力してください。<br>
-  <input name="id" type="text" style="width:100px"><br>
-  <input type="submit" value="送信">
-</form>
+  <form method="post" action="result.php">
+    請求コードを入力してください。<br>
+    <input name="id" type="text" style="width:100px"><br>
+    <input type="submit" value="送信">
+  </form>
 </body>
 </html>

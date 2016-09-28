@@ -1,10 +1,10 @@
 <?php
-session_start();
-// ログイン状態チェック
-if (!isset($_SESSION["USERID"])) {
-  header("Location: Logout.php");
-  exit;
-}
+  session_start();
+  // ログイン状態チェック
+  if (!isset($_SESSION["USERID"])) {
+    header("Location: Logout.php");
+    exit;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -27,13 +27,13 @@ if (!isset($_SESSION["USERID"])) {
       $dbh = new PDO($dsn, $user, $password);
       $dbh -> query('SET NAMES utf8');
 
-      $sql = 'SELECT * FROM seikyu WHERE delete_flag = 0 AND id='.$id; // 編集します。
+      $sql = 'SELECT * FROM seikyu WHERE delete_flag = 0 AND id = '.$id; // 編集します。
       $stmt = $dbh -> prepare($sql);
       $data[] = $code; // 追加
       $stmt -> execute($data); // executeの引数に$dataを追加
       while(1) {
         $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($rec==false) {
+        if($rec == false) {
           break;
         }
 

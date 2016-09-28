@@ -8,7 +8,6 @@
 </head>
 <body>
 <?php
-
   $id = $_POST['id'];
   $item = $_POST["item"];
   $num = $_POST["num"];
@@ -26,8 +25,7 @@
 
   $rec = $stmt -> fetch(PDO::FETCH_ASSOC);
 
-$dbh = null;
-
+  $dbh = null;
 ?>
 <p>更新しました。</p>
 <a href="main.php">メインページに戻る</a>
