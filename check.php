@@ -1,18 +1,11 @@
 <?php
-  session_start();
-
-  // ログイン状態チェック
-  if (!isset($_SESSION["USERID"])) {
-    header("Location: Logout.php");
-    exit;
-  }
   $item = $_POST["item"];
   $num = $_POST["num"];
-  $money = $_POST["money"];
+  $price = $_POST["price"];
 
   $item = htmlspecialchars($item);
   $num = htmlspecialchars($num);
-  $money = htmlspecialchars($money);
+  $price = htmlspecialchars($price);
 
   if($item == "") {
     echo "品名が入力されていません。<br>";
@@ -30,15 +23,15 @@
     echo "<br>";
   }
 
-  if($money == "") {
-    echo "品名が入力されていません。<br>";
+  if($price == "") {
+    echo "単価が入力されていません。<br>";
   } else {
     echo "単価";
-    echo "$money";
+    echo "$price";
     echo "<br>";
   }
 
-  if($item == "" || $num == "" || $money == "") {
+  if($item == "" || $num == "" || $price == "") {
   echo "<form>";
   echo "<input type='button' onclick='history.back()' value='戻る'>";
   echo "</form>";
@@ -47,7 +40,7 @@
 
   echo "<input name='item' type='hidden' value='$item'>";
   echo "<input name='num' type='hidden' value='$num'>";
-  echo "<input name='money' type='hidden' value='$money'>";
+  echo "<input name='price' type='hidden' value='$price'>";
 
   echo "<input type='button' onclick='history.back()' value='戻る'>";
   echo "<input type='submit' value='OK'>";

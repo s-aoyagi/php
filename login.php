@@ -31,4 +31,5 @@ catch(PDOException $e) {
 }
 // DB切断
 $pdo = null;
+echo "<input type='button' onclick='history.back()' value='戻る'>";
 ?>

@@ -1,3 +1,12 @@
+<?php
+session_start();
+// ログイン状態チェック
+if (!isset($_SESSION["USERID"])) {
+  header("Location: Logout.php");
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +16,6 @@
 </head>
 <body>
 <?php
-  session_start();
-
-  // ログイン状態チェック
-  if (!isset($_SESSION["USERID"])) {
-    header("Location: Logout.php");
-    exit;
-  }
-
   $dsn = 'mysql:dbname=receipt;host=localhost';
   $user = 'root';
   $password = 'root';
@@ -23,8 +24,8 @@
 
   $item = $_POST["item"];
   $num = $_POST["num"];
-  $money = $_POST["money"];
-  $total = $money * $num;
+  $price = $_POST["price"];
+  $total = $price * $num;
 
   echo "品名：";
   echo $item;
@@ -33,12 +34,12 @@
   echo $num;
   echo "<br>";
   echo "単価：";
-  echo $money;
+  echo $price;
   echo "<br>";
   echo "請求合計金額：";
   echo $total;
 
-  $sql = 'INSERT INTO seikyu (item,num,money) VALUES("'.$item.' "," '.$num.' "," '.$total.' ")';
+  $sql = 'INSERT INTO seikyu (item,num,price) VALUES("'.$item.' "," '.$num.' "," '.$price.' ")';
   $stmt = $dbh -> prepare($sql);
   $stmt -> execute(); // データベースにSQL文で命令を出す
 
@@ -47,6 +48,7 @@
   echo "以上のデータを保管しました"
 ?>
   <ul>
+    <li><a href="main.php">メインページ</a></li>
     <li><a href="Logout.php">ログアウト</a></li>
   </ul>
 </body>

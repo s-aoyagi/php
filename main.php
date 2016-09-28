@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // ログイン状態チェック
 if (!isset($_SESSION["USERID"])) {
   header("Location: Logout.php");
@@ -8,7 +7,7 @@ if (!isset($_SESSION["USERID"])) {
 }
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -25,12 +24,13 @@ if (!isset($_SESSION["USERID"])) {
       <br>個数
       <input name="num" type="text">
       <br>単価
-      <input name="money" type="text">
+      <input name="price" type="text">
       <input type="submit" value="送信">
     </form>
 
     <ul>
-      <li><a href="Logout.php">ログアウト</a></li>
+      <li><a href="logout.php">ログアウト</a></li>
+      <li><a href="search.php">詳細検索</a></li>
     </ul>
   </body>
 </html>
